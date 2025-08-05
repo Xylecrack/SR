@@ -210,6 +210,3 @@ async def orchestrate(question: Question):
         return {"query": user_query, "rephrased_query": rephrased_query, "suggested_answer": "Answer compilation failed", "context": "N/A", "urls": [], "references": [], "confidence": "0", "sql_queries": sql_queries, "total_time": total_time,
                 "response": []}
 
-@app.get("/test")
-async def test_route():
-    return {"status": "ok", "message": "API is running"}
