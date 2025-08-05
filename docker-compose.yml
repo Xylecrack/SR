@@ -2,7 +2,7 @@ services:
   retrieval:
     build:
       context: .
-    container_name: retrieval_service
+    container_name: sr_service
     networks:
       - milvus
     deploy:

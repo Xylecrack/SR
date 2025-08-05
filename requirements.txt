@@ -10,3 +10,4 @@ SQLAlchemy
 asyncio
 pandas
 pydantic
+google-generativeai

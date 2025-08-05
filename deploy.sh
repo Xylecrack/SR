@@ -5,7 +5,7 @@ ENV=$2         # test | prod
 PORT=$3        # unused (can be inferred from override)
 MODULE=$4      # e.g., cpi_top5_results_v5_vm_experimental_citeurl
 
-cd /mnt/data/sujalmh/vr
+cd /mnt/data/sujalmh/sr
 git pull origin $ENV
 
 # Kill existing container if running
