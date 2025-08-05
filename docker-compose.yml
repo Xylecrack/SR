@@ -3,8 +3,6 @@ services:
     build:
       context: .
     container_name: sr_service
-    networks:
-      - milvus
     deploy:
       resources:
         limits:
@@ -16,7 +14,3 @@ services:
       - "${PORT}:8000"
     command: >
       sh -c "uvicorn ${MODULE}:app --host 0.0.0.0 --port 8000"
-
-networks:
-  milvus:
-    external: true
