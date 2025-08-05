@@ -1,0 +1,22 @@
+services:
+  retrieval:
+    build:
+      context: .
+    container_name: retrieval_service
+    networks:
+      - milvus
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2g
+    env_file:
+      - .env  # default; overridden by test/prod
+    ports:
+      - "${PORT}:8000"
+    command: >
+      sh -c "uvicorn ${MODULE}:app --host 0.0.0.0 --port 8000"
+
+networks:
+  milvus:
+    external: true
