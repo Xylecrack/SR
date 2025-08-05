@@ -11,3 +11,4 @@ asyncio
 pandas
 pydantic
 google-generativeai
+psycopg2
