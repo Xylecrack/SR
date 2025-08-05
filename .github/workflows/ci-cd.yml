@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.DEV_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /mnt/data/sujalmh/vr
+            cd /mnt/data/sujalmh/sr
             git pull origin dev
             fuser -k 8050/tcp || true
 
@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.TEST_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /mnt/data/sujalmh/vr
+            cd /mnt/data/sujalmh/sr
             git pull origin test
             bash deploy.sh retrieval test 8051 api_main
 
@@ -63,6 +63,6 @@ jobs:
           username: ${{ secrets.PROD_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /mnt/data/sujalmh/vr
+            cd /mnt/data/sujalmh/sr
             git pull origin main
             bash deploy.sh retrieval prod 8052 api_main

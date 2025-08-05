@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+openai
+tqdm
+langchain
+langchain_community
+google-genai
+groq
+SQLAlchemy
+asyncio
+pandas
+pydantic
