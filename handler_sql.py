@@ -15,6 +15,7 @@ from   sqlalchemy import create_engine, text
 import pandas as pd
 import ast
 from   utils_common import llm_call, llm_call_rephrase
+import os 
 
 query_counter = {"value": 1}
 counter_lock  = Lock()
@@ -28,7 +29,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-DATABASE_URI = "postgresql://postgres:admin@localhost:5432/final"
+DATABASE_URI = os.getenv("DATABASE_URI","postgresql://postgres:admin@localhost:5432/final")
+
 db = SQLDatabase.from_uri(
     DATABASE_URI,
     engine_args={

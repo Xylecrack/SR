@@ -26,14 +26,16 @@ from   utils_sql import classify_query, file_selector_CPI, file_selector_GDP, fi
 from   sqlalchemy import create_engine, text
 import pandas as pd
 import ast
+import os
 
-DATABASE_URL_SYNC = "postgresql://postgres:admin@localhost:5432/final"
+DATABASE_URL_SYNC = os.getenv("DATABASE_URL_SYNC","postgresql://postgres:admin@localhost:5432/final")
+
 sync_engine = create_engine(DATABASE_URL_SYNC)
 
 async def read_sql_in_thread(sql: str):
     return await asyncio.to_thread(pd.read_sql_query, sql, sync_engine)
 
-DATABASE_URL_ASYNC = "postgresql+asyncpg://postgres:admin@localhost:5432/final"
+DATABASE_URL_ASYNC = os.getenv("DATABASE_URL_ASYNC","postgresql+asyncpg://postgres:admin@localhost:5432/final")
 
 async_engine = create_async_engine(
     DATABASE_URL_ASYNC,
